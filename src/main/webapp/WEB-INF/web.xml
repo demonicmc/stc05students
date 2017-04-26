@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns="http://java.sun.com/xml/ns/j2ee"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd"
+         version="2.4">
+  <display-name>Archetype Created Web Application</display-name>
+  <servlet>
+    <servlet-name>LoginServlet</servlet-name>
+    <servlet-class>main.controllers.LoginServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>HelloServlet</servlet-name>
+    <servlet-class>main.controllers.HelloServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>ListServlet</servlet-name>
+    <servlet-class>main.controllers.ListServlet</servlet-class>
+  </servlet>
+  <filter>
+    <filter-name>WhiteFilter</filter-name>
+    <filter-class>main.controllers.filters.WhiteList</filter-class>
+  </filter>
+  <servlet>
+    <servlet-name>StudentAddServlet</servlet-name>
+    <servlet-class>main.controllers.StudentAddServlet</servlet-class>
+  </servlet>
+
+  <servlet-mapping>
+    <servlet-name>LoginServlet</servlet-name>
+    <url-pattern>/</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>HelloServlet</servlet-name>
+    <url-pattern>/hello</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>ListServlet</servlet-name>
+    <url-pattern>/list</url-pattern>
+  </servlet-mapping>
+  <filter-mapping>
+    <filter-name>WhiteFilter</filter-name>
+    <url-pattern>/list</url-pattern>
+  </filter-mapping>
+  <servlet-mapping>
+    <servlet-name>StudentAddServlet</servlet-name>
+    <url-pattern>/add-student</url-pattern>
+  </servlet-mapping>
+
+  <listener>
+    <listener-class>main.controllers.listeners.NewAppStartListener</listener-class>
+  </listener>
+  <listener>
+    <listener-class>main.controllers.listeners.MySessionListener</listener-class>
+  </listener>
+
+  <listener>
+    <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+  </listener>
+  <context-param>
+    <param-name>contextConfigLocation</param-name>
+    <param-value>WEB-INF/beans.xml</param-value>
+  </context-param>
+</web-app>
